@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User page</title>
+  <title>Admin page</title>
   <link rel="shortcut icon" href="https://javastudy.ru/wp-content/uploads/2015/04/Spring-logo.jpeg" type="image/x-icon">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 </head>
@@ -16,7 +16,7 @@
         <strong>
           <td th:text="${user.getUsername()}"></td>
         </strong>
-        with role <td th:each="role:${user.getRoles()}">[[${role.getName()}]]</td>
+        with role <td th:each="role:${admin.getRoles()}">[[${role.getName()}]]</td>
       </div>
     </div>
     <a style="color: gray" class="nav-link" href="/logout">Logout</a>
@@ -26,7 +26,8 @@
   <div class="row">
     <div class="col-2 pt-2">
       <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
-        <a class="nav-link active" href="http://localhost:8080/user" role="tab" aria-selected="true">User</a>
+        <a class="nav-link" th:href="@{/admin}" role="tab" aria-selected="false">Admin</a>
+        <a class="nav-link active" th:href="@{/admin/user}" role="tab" aria-selected="true">User</a>
       </div>
     </div>
     <div class="col-10 pt-2 bg-light">
